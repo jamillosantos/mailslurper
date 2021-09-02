@@ -112,7 +112,9 @@ func (s *SMTPListener) Dispatch(ctx context.Context) {
 			select {
 			case item := <-s.mailItemChannel:
 				for _, r := range s.receivers {
-					go r.Receive(item)
+					go func(r IMailItemReceiver) {
+						_ = r.Receive(item)
+					}(r)
 				}
 
 			case <-ctx.Done():

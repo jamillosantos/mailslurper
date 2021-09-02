@@ -5,7 +5,6 @@
 package jwt
 
 import (
-	"bytes"
 	"crypto/aes"
 	"crypto/cipher"
 	"crypto/rand"
@@ -17,8 +16,9 @@ import (
 	"golang.org/x/crypto/pbkdf2"
 
 	"github.com/dgrijalva/jwt-go"
-	"github.com/mailslurper/mailslurper/pkg/mailslurper"
 	"github.com/pkg/errors"
+
+	"github.com/mailslurper/mailslurper/pkg/mailslurper"
 )
 
 /*
@@ -109,7 +109,7 @@ func (s *JWTService) EncryptToken(token string) (string, error) {
 	}
 
 	nonce = make([]byte, gcm.NonceSize())
-	io.ReadFull(rand.Reader, nonce)
+	_, _ = io.ReadFull(rand.Reader, nonce)
 
 	encryptedResult = gcm.Seal(nonce, nonce, []byte(token), nil)
 	encodedResult := base64.StdEncoding.EncodeToString(encryptedResult)
@@ -197,10 +197,4 @@ func (s *JWTService) IsTokenValid(token *jwt.Token) error {
 
 func (s *JWTService) generateAESKey() []byte {
 	return pbkdf2.Key([]byte(s.Config.AuthSecret), []byte(s.Config.AuthSalt), 4096, 32, sha1.New)
-}
-
-func (s *JWTService) pkcs5Padding(content []byte) []byte {
-	padding := aes.BlockSize - len(content)%aes.BlockSize
-	padtext := bytes.Repeat([]byte{byte(padding)}, padding)
-	return append(content, padtext...)
 }

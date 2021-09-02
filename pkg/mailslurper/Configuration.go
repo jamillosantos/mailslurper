@@ -167,7 +167,7 @@ LoadConfiguration reads data from a Reader into a new Configuration structure.
 */
 func LoadConfiguration(reader io.Reader) (*Configuration, error) {
 	var err error
-	var buffer = make([]byte, 4096)
+	var buffer []byte
 
 	result := &Configuration{}
 	if buffer, err = ioutil.ReadAll(reader); err != nil {
