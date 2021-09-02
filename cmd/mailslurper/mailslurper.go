@@ -2,7 +2,7 @@
 // Use of this source code is governed by the MIT license
 // that can be found in the LICENSE file.
 
-//go:generate esc -o ./www/www.go -pkg www -ignore DS_Store|README\.md|LICENSE|www\.go -prefix /www/ ./www
+//go:generate go run github.com/mjibson/esc -o ./www/www.go -pkg www -ignore DS_Store|README\.md|LICENSE|www\.go -prefix /www/ ./www
 
 package main
 
@@ -15,10 +15,11 @@ import (
 	"time"
 
 	"github.com/labstack/echo/v4"
-	"github.com/mailslurper/mailslurper/pkg/mailslurper"
-	"github.com/mailslurper/mailslurper/pkg/ui"
 	"github.com/patrickmn/go-cache"
 	"github.com/sirupsen/logrus"
+
+	"github.com/mailslurper/mailslurper/pkg/mailslurper"
+	"github.com/mailslurper/mailslurper/pkg/ui"
 )
 
 const (
