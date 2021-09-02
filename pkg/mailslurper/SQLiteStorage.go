@@ -49,7 +49,7 @@ func (storage *SQLiteStorage) Connect() error {
 Disconnect does exactly what you think it does
 */
 func (storage *SQLiteStorage) Disconnect() {
-	storage.db.Close()
+	_ = storage.db.Close()
 }
 
 /*

@@ -58,7 +58,7 @@ func (storage *MSSQLStorage) Connect() error {
 Disconnect does exactly what you think it does
 */
 func (storage *MSSQLStorage) Disconnect() {
-	storage.db.Close()
+	_ = storage.db.Close()
 }
 
 /*
@@ -462,7 +462,7 @@ func (storage *MSSQLStorage) StoreMail(mailItem *MailItem) (string, error) {
 		return "", errors.Wrapf(err, "Error inserting new mail item in StoreMail")
 	}
 
-	statement.Close()
+	_ = statement.Close()
 
 	/*
 	 * Insert attachments

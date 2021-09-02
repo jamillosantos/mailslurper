@@ -8,7 +8,7 @@ import (
 	"crypto/aes"
 	"crypto/cipher"
 	"crypto/rand"
-	"crypto/sha1"
+	"crypto/sha256"
 	"encoding/base64"
 	"io"
 	"time"
@@ -196,5 +196,5 @@ func (s *JWTService) IsTokenValid(token *jwt.Token) error {
 }
 
 func (s *JWTService) generateAESKey() []byte {
-	return pbkdf2.Key([]byte(s.Config.AuthSecret), []byte(s.Config.AuthSalt), 4096, 32, sha1.New)
+	return pbkdf2.Key([]byte(s.Config.AuthSecret), []byte(s.Config.AuthSalt), 4096, 32, sha256.New)
 }

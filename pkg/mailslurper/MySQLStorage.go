@@ -60,7 +60,7 @@ func (storage *MySQLStorage) Connect() error {
 Disconnect does exactly what you think it does
 */
 func (storage *MySQLStorage) Disconnect() {
-	storage.db.Close()
+	_ = storage.db.Close()
 }
 
 /*
