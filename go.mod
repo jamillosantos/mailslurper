@@ -7,7 +7,7 @@ require (
 	github.com/denisenkom/go-mssqldb v0.10.0
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/go-sql-driver/mysql v1.6.0
-	github.com/golangci/golangci-lint v1.42.0
+	github.com/golangci/golangci-lint v1.42.1
 	github.com/gorilla/sessions v1.2.1
 	github.com/jinzhu/copier v0.3.2
 	github.com/labstack/echo-contrib v0.11.0
