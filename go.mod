@@ -4,7 +4,7 @@ go 1.16
 
 require (
 	github.com/adampresley/webframework v0.0.0-20200114004523-0c93acb6716f
-	github.com/denisenkom/go-mssqldb v0.10.0
+	github.com/denisenkom/go-mssqldb v0.11.0
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/go-sql-driver/mysql v1.6.0
 	github.com/golangci/golangci-lint v1.42.0
