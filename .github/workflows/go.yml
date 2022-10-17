@@ -18,7 +18,7 @@ jobs:
       - name: Check out code into the Go module directory
         uses: actions/checkout@v2
 
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3.0.11
         with:
           path: |
             ~/.cache/go-build
@@ -54,7 +54,7 @@ jobs:
       - name: Check out code into the Go module directory
         uses: actions/checkout@v2
 
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3.0.11
         with:
           path: |
             ~/.cache/go-build
@@ -86,7 +86,7 @@ jobs:
       - name: Check out code into the Go module directory
         uses: actions/checkout@v2
 
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3.0.11
         with:
           path: |
             ~/.cache/go-build
@@ -119,7 +119,7 @@ jobs:
       - name: Check out code into the Go module directory
         uses: actions/checkout@v2
 
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3.0.11
         with:
           path: |
             ~/.cache/go-build
